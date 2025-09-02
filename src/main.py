@@ -18,7 +18,7 @@ def main():
     modes = [LEDMode.OFF, LEDMode.RED, LEDMode.GREEN, LEDMode.HSV, LEDMode.RED_HSV]
 
     # iniciar primer movimiento
-    target = random.random() * 180
+    target = random.uniform(0, 180)
     speed = abs(target - servo.getAngle()) / 0.5 if target != servo.getAngle() else 0
     servo.setSpeed(speed)
     servo.moveTo(target)
@@ -34,7 +34,7 @@ def main():
         led.step(t, dt)
 
         if servo.getStatus() == Servo.STOPPED:
-            target = random.random() * 180
+            target = random.uniform(0, 180)
             speed = abs(target - servo.getAngle()) / 0.5 if target != servo.getAngle() else 0
             servo.setSpeed(speed)
             servo.moveTo(target)
